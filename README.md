@@ -22,8 +22,39 @@ JSON_READER支持使用链式调用取出JSON中的任意value
 ## 示例
 ```go
 package main
-import "github.com/gscsdlz/json_reader"
+
+import (
+	"fmt"
+	"github.com/gscsdlz/json_reader"
+	"os"
+)
 
 func main() {
+	str := `
+{
+  "obj": {
+    "k1": 1000,
+    "k2": "2"
+},
+  "arr": [
+    "v1",
+    {
+      "obj2": {
+        "k1": 1, 
+        "k2": "hello"
+      }
+    }
+  ]
 }
+`
+	r, err := json_reader.Parse([]byte(str))
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(r.Get("obj").Get("k1").Number())
+	arrItem1 := r.Get("arr").Get(1)
+	fmt.Println(arrItem1.Get("obj2").Get("k2").String())
+}
+
 ```
