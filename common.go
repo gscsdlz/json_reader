@@ -6,4 +6,5 @@ type JsonReader interface {
 	Get(key interface{}) JsonReader
 	Number() float64
 	String() string
+	Len() int
 }

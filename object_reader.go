@@ -28,3 +28,7 @@ func (j *ObjectReader) Number() float64 {
 func (j *ObjectReader) String() string {
 	panic("implement me")
 }
+
+func (j *ObjectReader) Len() int {
+	return len(j.Data)
+}

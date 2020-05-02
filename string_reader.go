@@ -23,3 +23,7 @@ func (j *StringReader) Number() float64 {
 func (j *StringReader) String() string {
 	return j.Data
 }
+
+func (j *StringReader) Len() int {
+	panic("implement me")
+}

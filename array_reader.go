@@ -29,3 +29,7 @@ func (j *ArrayReader) Number() float64 {
 func (j *ArrayReader) String() string {
 	panic("implement me")
 }
+
+func (j *ArrayReader) Len() int {
+	return len(j.Data)
+}
