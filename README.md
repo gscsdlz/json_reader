@@ -33,15 +33,15 @@ import (
 )
 
 func main() {
-	str := `{"obj":{"k1":1000,"k2":"2"},"arr":[{"k1":1,"k2":"hello1"},{"k1":2,"k2":"hello2"}]}`
-	r, err := json_reader.Parse([]byte(str))
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	fmt.Println(r.Get("obj").Get("k1").Number())
+    str := `{"obj":{"k1":1000,"k2":"2"},"arr":[{"k1":1,"k2":"hello1"},{"k1":2,"k2":"hello2"}]}`
+    r, err := json_reader.Parse([]byte(str))
+    if err != nil {
+	fmt.Println(err)
+	os.Exit(1)
+    }
+    fmt.Println(r.Get("obj").Get("k1").Number())
 
-	arrItem := r.Get("arr")
+    arrItem := r.Get("arr")
     for i := 0; i < arrItem.Len(); i++ {
 	    fmt.Println(arrItem.Get(i).Get("k1").Number())
 	    fmt.Println(arrItem.Get(i).Get("k2").String())
