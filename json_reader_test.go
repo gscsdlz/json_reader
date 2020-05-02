@@ -18,5 +18,8 @@ func TestParse(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fmt.Println(reader.Get("alarm_list").Get(0).Get("id").String())
+	list := reader.Get("alarm_list")
+	for i := 0; i < list.Len(); i++ {
+		fmt.Println(list.Get(i).Get("id").String())
+	}
 }
